@@ -10,7 +10,6 @@ map = [[1,3,0,0,0,1],
 stack =[]
 now = 2
 nowPosition =[5,3]
-tryPosition =[]
 #left = (n, k-1)
 #right = (n, k+1)
 #up = (n-1, k)
@@ -28,7 +27,6 @@ def leftPos(position):
     col = position[1]
     position[1] = position[1] + 1
     blocked = map[row][col]
-    print('left', row, col)
     return blocked
 
 def rightPos(position):
@@ -39,7 +37,6 @@ def rightPos(position):
     col = position[1]
     position[1] = position[1] - 1
     blocked = map[row][col]
-    print('right',row,col)
     return blocked
 
 def upPos(position):
@@ -50,7 +47,6 @@ def upPos(position):
     col = position[1]
     position[0] = position[0] + 1
     blocked = map[row][col]
-    print('up', row, col)
     return blocked
 
 def downPos(position):
@@ -59,7 +55,6 @@ def downPos(position):
         return 1
     row = position[0]
     col = position[1]
-    print('down', row, col)
     position[0] = position[0] - 1
     blocked = map[row][col]
     return blocked
@@ -74,7 +69,6 @@ while now!=3:
         map[nowPosition[0]][nowPosition[1]] = 4
         tmp = [nowPosition[0], nowPosition[1]]
         stack.append(tmp)
-        print(stack)
         continue
 
     now = rightPos(nowPosition)
@@ -84,7 +78,6 @@ while now!=3:
         map[nowPosition[0]][nowPosition[1]] = 4
         tmp = [nowPosition[0], nowPosition[1]]
         stack.append(tmp)
-        print(stack)
         continue
 
     now = upPos(nowPosition)
@@ -94,7 +87,6 @@ while now!=3:
         map[nowPosition[0]][nowPosition[1]] = 4
         tmp = [nowPosition[0], nowPosition[1]]
         stack.append(tmp)
-        print(stack)
         continue
 
     now = downPos(nowPosition)
@@ -104,7 +96,6 @@ while now!=3:
         map[nowPosition[0]][nowPosition[1]] = 4
         tmp = [nowPosition[0], nowPosition[1]]
         stack.append(tmp)
-        print(stack)
         continue
 
     if(len(stack) == 0):
@@ -112,7 +103,6 @@ while now!=3:
         break
     nowPosition = stack.pop()
 
-    print(nowPosition)
 
 while len(stack) != 0:
     tmp = stack.pop()
